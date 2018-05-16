@@ -53,9 +53,9 @@ export default class List extends Component {
                   }
                 </View>
               :
-                <View>
-                    { this.props.error ? <Text>{this.props.error}</Text> : <Text>No post Available</Text> }
-                </View>
+              <Text>
+                { this.props.error ? this.props.error : "No post Available" }
+              </Text> 
             }
         </View>
     );

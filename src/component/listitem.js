@@ -16,10 +16,19 @@ export default class ListItem extends Component {
     return (
       <View style={styles.container}>
           <View>
-            {post.images.length > 0   && post.images[0].cloudinary && <Image style={styles.image} source={{ uri: post.images[0].filename }} />}
-            {post.images.length > 0   && !post.images[0].cloudinary && <Image style={styles.image} source={{ uri: 'https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C/image-size/original?v=v2&px=-1' }} />}
-            {!post.images && <Image style={styles.image} source={{ uri: 'https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C/image-size/original?v=v2&px=-1' }} /> }
-          </View>  
+            {!post.images ? 
+              <Image style={styles.image} source={{ uri: 'https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C/image-size/original?v=v2&px=-1' }} />
+            :
+              <View>
+              {post.images[0].cloudinary 
+              ? 
+                <Image style={styles.image} source={{ uri: post.images[0].filename }} />
+              :
+                <Image style={styles.image} source={{ uri: 'https://pvsmt99345.i.lithium.com/t5/image/serverpage/image-id/10546i3DAC5A5993C8BC8C/image-size/original?v=v2&px=-1' }} /> 
+              }
+              </View>
+            }
+          </View>
           <View style={styles.textContainer}>
             <Text 
               style={styles.description} 
